@@ -1,5 +1,6 @@
 from .base import ScryfallAPIBaseRequestBuilder
 from .cards import ScryfallAPICardsRequestBuilder
+from .sets import ScryfallAPISetsRequestBuilder
 
 
 class ScryfallAPIRequestBuilder(ScryfallAPIBaseRequestBuilder):
@@ -8,3 +9,6 @@ class ScryfallAPIRequestBuilder(ScryfallAPIBaseRequestBuilder):
 
     def cards(self):
         return ScryfallAPICardsRequestBuilder(f"{self.base_url}/cards")
+
+    def sets(self):
+        return ScryfallAPISetsRequestBuilder(f"{self.base_url}/sets")

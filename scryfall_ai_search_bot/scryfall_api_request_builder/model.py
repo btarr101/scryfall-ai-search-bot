@@ -1,4 +1,14 @@
+from typing import Generic, TypeVar
+from uuid import UUID
 import pydantic
+
+
+T = TypeVar("T", bound=pydantic.BaseModel)
+
+
+class ScryfallList(pydantic.BaseModel, Generic[T]):
+    has_more: bool
+    data: list[T]
 
 
 class ScryfallCardLegalities(pydantic.BaseModel):
@@ -35,8 +45,17 @@ class ScryfallCard(pydantic.BaseModel):
     image_uris: ScryfallCardImageUris | None = None
 
 
-class ScryfallCardList(pydantic.BaseModel):
+class ScryfallSet(pydantic.BaseModel):
+    id: UUID
+    code: str
+    name: str
+    set_type: str
+
+
+class ScryfallCardList(ScryfallList[ScryfallCard]):
     total_cards: int
-    has_more: bool
     next_page: str | None = None
-    data: list[ScryfallCard]
+
+
+class ScryfallSetList(ScryfallList[ScryfallSet]):
+    pass
