@@ -20,16 +20,27 @@ Write about 1-2 paragraphs describing the purpose of your project.
 
 ## Getting Started <a name = "getting_started"></a>
 
-TODO
-
 ### Prerequisites
 
-TODO
+- python>=3.12
+- poetry: https://python-poetry.org/ (for package management)
+- A discord token for an application created in the [Discord Developer Portal](https://discord.com/developers)
+- A GEMINI api key to use for the LLM API.
 
 ### Installing
 
-TODO
+1.  Create a `.env` file in the root of the repo based off [.env.example](.env.example).
+
+2.  Install all python dependencies
+
+    ```
+    poetry install
+    ```
 
 ## Usage <a name = "usage"></a>
 
-TODO
+Run the bot with
+
+```
+poetry run bot
+```

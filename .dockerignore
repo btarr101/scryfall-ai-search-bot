@@ -1,0 +1,10 @@
+.mypy_cache
+.poetry
+.venv
+.env.example
+.env
+__pycache__
+.git
+Dockerfile
+tests
+.vscode
