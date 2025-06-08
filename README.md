@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://scryfall.com/icon.png?v=30f58eab3992" alt="Scryfall logo"></a>
+ <img width=200px height=200px src="./media/scryfall-ai-search.png" alt="Scryfall logo"></a>
 </p>
 
 <h3 align="center">Scryfall AI Search Bot</h3>
@@ -16,7 +16,7 @@
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Discord bot that transforms naturual language into Scryfall search queries.
 
 ## Getting Started <a name = "getting_started"></a>
 

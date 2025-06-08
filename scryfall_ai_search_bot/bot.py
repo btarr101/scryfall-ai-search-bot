@@ -89,10 +89,11 @@ class DiscordClient(discord.Client):
 
         async with message.channel.typing():
             result = await self.controller.query(message.content, str(message.channel.id))
-            if isinstance(result, ErrorQueryResult):
-                await handle_error_result(result, message)
-            else:
-                await handle_success_result(result, message, self.httpx_client)
+
+        if isinstance(result, ErrorQueryResult):
+            await handle_error_result(result, message)
+        else:
+            await handle_success_result(result, message, self.httpx_client)
 
 
 async def handle_error_result(result: ErrorQueryResult, message: discord.Message):
