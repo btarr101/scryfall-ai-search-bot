@@ -40,7 +40,7 @@ class Controller:
         self.conversations: DefaultDict[str, list[ModelMessage]] = defaultdict(
             list
         )  # TODO: This should be a persistent data store like a DB
-        
+
         self.http_client = httpx.AsyncClient()
 
     async def query(self, prompt: str, conversation_key: str | None = None):

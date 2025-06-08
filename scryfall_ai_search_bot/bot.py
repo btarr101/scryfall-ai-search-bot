@@ -117,9 +117,7 @@ async def handle_success_result(
         {search_query}
         ```
         """
-    ).format(
-        explanation=result.explanation.strip(), search_query=result.search_query
-    )
+    ).format(explanation=result.explanation.strip(), search_query=result.search_query)
 
     scryfall_search_page_url = f"https://scryfall.com/search?q={urllib.parse.quote(result.search_query)}"
 

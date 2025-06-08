@@ -27,18 +27,14 @@ class ScryfallAPIRequest(Generic[T]):
         self.query_params = query_prams
 
     def execute(self, client: httpx.Client):
-        response = client.request(
-            method=self.method, url=self.url, params=self.query_params
-        )
+        response = client.request(method=self.method, url=self.url, params=self.query_params)
 
         response.raise_for_status()
         response_bytes = response.read()
         return self.response_model.model_validate_json(response_bytes)
 
     async def aexecute(self, client: httpx.AsyncClient):
-        response = await client.request(
-            method=self.method, url=self.url, params=self.query_params
-        )
+        response = await client.request(method=self.method, url=self.url, params=self.query_params)
 
         response.raise_for_status()
         response_bytes = await response.aread()
