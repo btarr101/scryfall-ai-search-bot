@@ -9,7 +9,9 @@ import os
 def setup_logging(service_name: str):
     if settings.OTLP_ENDPOINT:
         os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = settings.OTLP_ENDPOINT
-        os.environ["OTEL_EXPORTER_OTLP_LOGS_ENDPOINT"] = f"{os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"]}/v1/logs"
+        os.environ["OTEL_EXPORTER_OTLP_LOGS_ENDPOINT"] = (
+            f"{os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"]}/v1/logs"
+        )
         if settings.OTLP_USERNAME and settings.OTLP_PASSWORD:
             credentials = f"{settings.OTLP_USERNAME}:{settings.OTLP_PASSWORD}".encode("utf-8")
             encoded_credentials = base64.b64encode(credentials).decode("utf-8")
@@ -27,10 +29,9 @@ def setup_logging(service_name: str):
         handlers=[logfire.LogfireLoggingHandler()],
     )
 
-    if os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"]:
-        logging.info(
-            {
-                "otel_exporter": os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"],
-                "otel_credentials": True if os.environ["OTEL_EXPORTER_OTLP_HEADERS"] else False,
-            }
-        )
+    logging.info(
+        {
+            "otel_exporter": os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"),
+            "otel_credentials": True if os.environ.get("OTEL_EXPORTER_OTLP_HEADERS") is not None else False,
+        }
+    )
