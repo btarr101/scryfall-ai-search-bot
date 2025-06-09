@@ -4,7 +4,7 @@ from scryfall_ai_search_bot.settings import settings
 
 
 def main():
-    setup_logging("scryfall-api-search-bot-dev")
+    setup_logging(settings.OTLP_SERVICE)
 
     DiscordClient().run(settings.DISCORD_TOKEN, log_handler=None)
 
