@@ -1,5 +1,5 @@
 from scryfall_ai_search_bot.bot import DiscordClient
-from scryfall_ai_search_bot.logging import setup_logging
+from scryfall_ai_search_bot.setup_logging import setup_logging
 from scryfall_ai_search_bot.settings import settings
 
 
