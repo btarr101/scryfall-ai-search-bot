@@ -30,7 +30,7 @@ QueryResult = Union[SuccessQueryResult, ErrorQueryResult]
 class Controller:
     def __init__(self):
         model = GeminiModel(
-            "gemini-2.0-flash-exp",
+            "gemini-2.5-flash",
             provider=GoogleGLAProvider(api_key=settings.GEMINI_API_KEY),
         )
 
